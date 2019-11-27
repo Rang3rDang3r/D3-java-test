@@ -27,5 +27,22 @@ $(document).ready(function(){
             return d;
         })
         .attr ("width", barWidth);
-        
+
+    svg.selectAll ("text")
+        .data (dataset)
+        .enter ()
+        .append ("text")
+        .text (function (d) {
+            return d;
+        })
+        .attr ("text-anchor", "middle")
+        .attr ("x", function (d, i) {
+            return i * colWidth + barWidth / 2;
+        })
+        .attr ("y", function (d) {
+            return h - d + 14;
+        })
+        .attr ("font-family", "sans-serif")
+        .attr ("font-size", "11px")
+        .attr ("fill", "white");
 })
